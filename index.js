@@ -16,7 +16,7 @@ app.get('/v1/authorisation', (req, res) => {
     } else {
         // Reject the request with a 403 Forbidden response
         //res.status(403).send('Forbidden');
-        res.send(req);
+        res.send(req.body);
     }
 });
 
