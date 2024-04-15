@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const PORT = 4000; // Port for Authorisation API
+const PORT = 3004; // Port for Authorisation API
 
 app.get('/v1/authorisation', (req, res) => {
     const remoteAddress = req.connection.remoteAddress;
