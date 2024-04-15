@@ -28,9 +28,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`API C listening on port ${PORT}`);
-});
-
-app.listen(PORT, () => {
-    console.log(`API C listening on port ${PORT}`);
+    console.log(`Authorisation API listening on port ${PORT}`);
 });
