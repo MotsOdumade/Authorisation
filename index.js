@@ -3,7 +3,7 @@ const app = express();
 
 const PORT = 4000; // Port for Authorisation API
 
-app.use((req, res, next) => {
+app.get('/v1/authorisation', (req, res) => {
     const remoteAddress = req.connection.remoteAddress;
     // Check if the request is coming from localhost or specific IP addresses
     if (remoteAddress === '127.0.0.1' || remoteAddress === '::1') {
