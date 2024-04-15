@@ -19,13 +19,7 @@ app.get('/v1/authorisation', (req, res) => {
     }
 });
 
-// Your API endpoints and logic here
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something went wrong!');
-});
 
 app.listen(PORT, () => {
     console.log(`Authorisation API listening on port ${PORT}`);
