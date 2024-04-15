@@ -15,8 +15,8 @@ app.get('/v1/authorisation', (req, res) => {
         res.send("connected to the internal API, yay");
     } else {
         // Reject the request with a 403 Forbidden response
-        //res.status(403).send('Forbidden');
-        res.send(req.originalUrl);
+        res.status(403).send('Forbidden');
+        //res.send(req.originalUrl);
     }
 });
 
