@@ -1,13 +1,11 @@
 const express = require('express');
+const requestIp = require('request-ip');
 const app = express();
 
 const PORT = 3004; // Port for Authorisation API
 
 // Middleware to get client IP address
-app.use((req, res, next) => {
-    req.clientIp = req.ip; // Store client's IP address in request object
-    next();
-});
+app.use(requestIp.mw());
 
 app.get('/v1/authorisation', (req, res) => {
     const remoteAddress = req.clientIp;
@@ -27,6 +25,10 @@ app.get('/v1/authorisation', (req, res) => {
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong!');
+});
+
+app.listen(PORT, () => {
+    console.log(`API C listening on port ${PORT}`);
 });
 
 app.listen(PORT, () => {
