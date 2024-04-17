@@ -7,6 +7,20 @@ const PORT = 3004; // Port for Authorisation API - we'll only enable localhost a
 // Middleware to get client IP address
 app.use(requestIp.mw());
 
+// Allow requests from a specific origin
+const allowedOrigins = ['http://34.147.242.186/'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
+
 app.get('/v1/authorisation', (req, res) => {
     const remoteAddress = req.connection.remoteAddress;
 // ------ for localhost clients (APIs) we provide an authorisation service
