@@ -13,9 +13,12 @@ const allowedOrigins = ['http://34.147.242.186/'];
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
+      console.log('ig the origin of this is fine');
       callback(null, true);
     } else {
+      console.log('the origin was not fine');
       callback(new Error('Not allowed by CORS'));
+      
     }
   }
 }));
