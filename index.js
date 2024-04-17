@@ -1,7 +1,7 @@
 const express = require('express');
 const requestIp = require('request-ip');
 const app = express();
-
+const cors = require('cors');
 const PORT = 3004; // Port for Authorisation API - we'll only enable localhost access
 
 // Middleware to get client IP address
