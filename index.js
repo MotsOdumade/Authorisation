@@ -1,28 +1,10 @@
 const express = require('express');
 const requestIp = require('request-ip');
 const app = express();
-const cors = require('cors');
 const PORT = 3004; // Port for Authorisation API - we'll only enable localhost access
 
 // Middleware to get client IP address
 app.use(requestIp.mw());
-
-// Allow requests from a specific origin
-const allowedOrigins = ['http://34.147.242.186/'];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      console.log('ig the origin of this is fine');
-      console.log(origin);
-      callback(null, true);
-    } else {
-      console.log('the origin was not fine');
-      callback(new Error('Not allowed by CORS'));
-      
-    }
-  }
-}));
 
 
 app.get('/v1/authorisation', (req, res) => {
