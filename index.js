@@ -14,6 +14,7 @@ app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       console.log('ig the origin of this is fine');
+      console.log(origin);
       callback(null, true);
     } else {
       console.log('the origin was not fine');
