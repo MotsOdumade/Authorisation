@@ -7,7 +7,7 @@ const PORT = 3004; // Port for Authorisation API - we'll only enable localhost a
 app.use(requestIp.mw());
 
 
-app.get('/v1/authorisation', (req, res) => {
+app.get('/v1.1/data-analytics/authorisation', (req, res) => {
     const remoteAddress = req.connection.remoteAddress;
 // ------ for localhost clients (APIs) we provide an authorisation service
     if (remoteAddress === '::ffff:127.0.0.1' || remoteAddress === '::1') {
